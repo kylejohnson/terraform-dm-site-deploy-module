@@ -21,6 +21,7 @@ variable "lb_security_groups" {
 
 variable "ec2_security_groups" {
   description = "The security groups to which the ec2 instances belong."
+  type = "list"
 }
 
 variable "public_subnets" {

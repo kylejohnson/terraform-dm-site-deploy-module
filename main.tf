@@ -103,9 +103,7 @@ resource "aws_launch_configuration" "main" {
   associate_public_ip_address = false
   iam_instance_profile = "${var.iam_instance_profile}"
   user_data = "${data.template_file.launch_config.rendered}"
-  security_groups = [
-    "${var.ec2_security_groups}"
-  ]
+  security_groups = "${var.ec2_security_groups}"
 
   lifecycle {
     create_before_destroy = true
