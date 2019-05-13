@@ -10,7 +10,7 @@ resource "aws_lb" "main" {
   ]
 
   tags = {
-    Name = "theone"
+    Name = "${var.product}"
     Environment = "${var.environment}"
   }
 }
@@ -50,7 +50,7 @@ resource "aws_lb_target_group" "https" {
 }
 
 resource "aws_lb_listener" "http" {
-  load_balancer_arn = "${aws_lb.theone.arn}"
+  load_balancer_arn = "${aws_lb.main.arn}"
   port              = "80"
   protocol          = "HTTP"
 
@@ -61,11 +61,11 @@ resource "aws_lb_listener" "http" {
 }
 
 resource "aws_lb_listener" "https" {
-  load_balancer_arn = "${aws_lb.theone.arn}"
+  load_balancer_arn = "${aws_lb.main.arn}"
   port              = "443"
   protocol          = "HTTPS"
   ssl_policy        = "ELBSecurityPolicy-2016-08"
-  certificate_arn   = "${data.terraform_remote_state.global.domainmarket_cert_arn}"
+  certificate_arn   = "${var.certificate_arn}"
 
   default_action {
     type             = "forward"
@@ -104,8 +104,7 @@ resource "aws_launch_configuration" "main" {
   iam_instance_profile = "${var.iam_instance_profile}"
   user_data = "${data.template_file.launch_config.rendered}"
   security_groups = [
-    "${data.terraform_remote_state.staging.sg_theone_ec2_id}",
-    "${data.terraform_remote_state.staging.sg_sshable_id}"
+    "${var.ec2_security_groups}"
   ]
 
   lifecycle {

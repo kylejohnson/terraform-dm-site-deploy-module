@@ -15,8 +15,13 @@ variable "ci_commit_sha" {
   description = "Used in the naming of the launch configuration."
 }
 
-variable "security_groups" {
+variable "lb_security_groups" {
   description = "The security groups to which the load balancer belongs."
+}
+
+variable "ec2_security_groups" {
+  type = "list"
+  description = "The security groups to which the ec2 instances belong."
 }
 
 variable "public_subnets" {
@@ -35,4 +40,8 @@ variable "instance_type" {
 
 variable "iam_instance_profile" {
   description = "The IAM role to attach to instances."
+}
+
+variable "certificate_arn" {
+  description = "The certificate to use for the load balancer."
 }
