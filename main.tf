@@ -74,7 +74,7 @@ resource "aws_lb_listener" "https" {
 }
 
 data "template_file" "launch_config" {
-  template = "${file("user_data.sh")}"
+  template = "${file("${path.module}/user_data.sh")}"
   vars {
     playbook = "${var.product}.yml"
   }
