@@ -20,7 +20,6 @@ variable "lb_security_groups" {
 }
 
 variable "ec2_security_groups" {
-  type = "list"
   description = "The security groups to which the ec2 instances belong."
 }
 
