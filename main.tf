@@ -36,7 +36,7 @@ resource "aws_lb_target_group" "https" {
   name     = "theone-https"
   port     = 80
   protocol = "HTTP"
-  vpc_id   = "${local.vpc_id}"
+  vpc_id   = "${var.vpc_id}"
   deregistration_delay = 60
 
   health_check {
