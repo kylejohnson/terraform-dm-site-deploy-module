@@ -141,4 +141,9 @@ resource "aws_autoscaling_group" "main" {
     value = "${var.environment}"
     propagate_at_launch = true
   }
+  tag {
+    key   = "Name"
+    value = "asg-${var.product}"
+    propagate_at_launch = true
+  }
 }
