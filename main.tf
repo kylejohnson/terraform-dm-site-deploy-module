@@ -29,6 +29,7 @@ resource "aws_lb_target_group" "http" {
     path = "/"
     interval = 30
     port = 80
+    matcher = "200,300,301,302"
   }
 }
 
