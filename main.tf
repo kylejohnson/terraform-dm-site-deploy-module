@@ -47,6 +47,7 @@ resource "aws_lb_target_group" "https" {
     path = "/"
     interval = 30
     protocol = "HTTP"
+    matcher = "200,302"
   }
 }
 
