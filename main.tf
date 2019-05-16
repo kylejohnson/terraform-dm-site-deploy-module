@@ -1,5 +1,5 @@
 resource "aws_lb" "main" {
-  name               = "${var.product}"
+  name               = "${var.product}-${var.environment}"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [
@@ -16,7 +16,7 @@ resource "aws_lb" "main" {
 }
 
 resource "aws_lb_target_group" "http" {
-  name     = "${var.product}-http"
+  name     = "${var.product}-http-${var.environment}"
   port     = 81
   protocol = "HTTP"
   vpc_id   = "${var.vpc_id}"
@@ -34,7 +34,7 @@ resource "aws_lb_target_group" "http" {
 }
 
 resource "aws_lb_target_group" "https" {
-  name     = "theone-https"
+  name     = "${var.product}-https-${var.environment}"
   port     = 80
   protocol = "HTTP"
   vpc_id   = "${var.vpc_id}"
@@ -98,7 +98,7 @@ data "aws_ami" "main" {
 }
 
 resource "aws_launch_configuration" "main" {
-  name   = "${var.product}-${var.ci_commit_sha}"
+  name   = "${var.product}-${var.ci_commit_sha}-${var.environment}"
   image_id      = "${data.aws_ami.main.id}"
   instance_type = "${var.instance_type}"
   key_name      = "kyle"
