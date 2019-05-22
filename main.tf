@@ -79,6 +79,7 @@ data "template_file" "launch_config" {
   template = "${file("${path.module}/user_data.sh")}"
   vars {
     playbook = "${var.product}.yml"
+    git_branch = "${var.git_branch}"
   }
 }
 
