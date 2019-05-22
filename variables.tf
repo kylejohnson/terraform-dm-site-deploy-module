@@ -46,6 +46,6 @@ variable "certificate_arn" {
   description = "The certificate to use for the load balancer."
 }
 
-varaible "git_branch" {
+variable "git_branch" {
   description = "The branch to check out the git project from."
 }
