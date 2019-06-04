@@ -44,10 +44,10 @@ resource "aws_lb_target_group" "https" {
     healthy_threshold = 2
     unhealthy_threshold = 2
     timeout = 5
-    path = "/"
+    path = "/login"
     interval = 30
     protocol = "HTTP"
-    matcher = "200,302"
+    matcher = "200"
   }
 }
 
