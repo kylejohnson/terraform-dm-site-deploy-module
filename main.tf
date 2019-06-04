@@ -27,7 +27,7 @@ resource "aws_lb_target_group" "http" {
     unhealthy_threshold = 2
     timeout = 5
     path = "/"
-    interval = 5
+    interval = 10
     port = 80
     matcher = "200,300,301,302"
   }
@@ -45,7 +45,7 @@ resource "aws_lb_target_group" "https" {
     unhealthy_threshold = 2
     timeout = 5
     path = "/login"
-    interval = 5
+    interval = 10
     protocol = "HTTP"
     matcher = "200"
   }
