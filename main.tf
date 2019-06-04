@@ -120,6 +120,7 @@ resource "aws_autoscaling_group" "main" {
   min_size             = 1
   max_size             = 1
   health_check_type    = "ELB"
+  wait_for_elb_capacity = "1"
   vpc_zone_identifier  = [
     "${var.private_subnets}"
   ]
