@@ -26,10 +26,10 @@ resource "aws_lb_target_group" "http" {
     healthy_threshold = 2
     unhealthy_threshold = 2
     timeout = 5
-    path = "/"
+    path = "${var.http_health_check_path}"
     interval = 10
     port = 80
-    matcher = "200,300,301,302"
+    matcher = "${var.http_health_check_matcher}"
   }
 }
 
@@ -44,10 +44,10 @@ resource "aws_lb_target_group" "https" {
     healthy_threshold = 2
     unhealthy_threshold = 2
     timeout = 5
-    path = "/login"
+    path = "${var.https_health_check_path}"
     interval = 10
     protocol = "HTTP"
-    matcher = "200"
+    matcher = "${var.http_health_check_matcher}"
   }
 }
 

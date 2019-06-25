@@ -49,3 +49,19 @@ variable "certificate_arn" {
 variable "git_branch" {
   description = "The branch to check out the git project from."
 }
+
+variable "http_health_check_path" {
+  description = "The path for the http healh check."
+}
+
+variable "http_health_check_matcher" {
+  description "Comma-separated string of expected http return codes for the http health check."
+}
+
+variable "https_health_check_path" {
+  description = "The path for the https healh check."
+}
+
+variable "https_health_check_matcher" {
+  description "Comma-separated string of expected http return codes for the https health check."
+}
