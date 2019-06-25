@@ -119,7 +119,7 @@ resource "aws_autoscaling_group" "main" {
   desired_capacity     = 1
   min_size             = 1
   max_size             = 1
-  health_check_type    = "ELB"
+  health_check_type    = "${var.health_check_type}"
   wait_for_elb_capacity = "1"
   health_check_grace_period = 500
   vpc_zone_identifier  = [

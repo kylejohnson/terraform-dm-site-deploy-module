@@ -65,3 +65,7 @@ variable "https_health_check_path" {
 variable "https_health_check_matcher" {
   description "Comma-separated string of expected http return codes for the https health check."
 }
+
+variable "health_check_type" {
+  description "Type of check (EC2 or ELB) for autoscaling group to perform against instances."
+}
