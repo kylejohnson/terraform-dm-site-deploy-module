@@ -69,3 +69,15 @@ variable "https_health_check_matcher" {
 variable "health_check_type" {
   description = "Type of check (EC2 or ELB) for autoscaling group to perform against instances."
 }
+
+variable "desired_capacity" {
+  description = "The number of instances you want to run in this Auto Scaling group."
+}
+
+variable "max_size" {
+  description = "The maximum number of instances the Auto Scaling group should have at any time."
+}
+
+variable "min_size" {
+  description = "The minimum number of instances the Auto Scaling group should have at any time."
+}

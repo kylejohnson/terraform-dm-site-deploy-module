@@ -116,9 +116,9 @@ resource "aws_launch_configuration" "main" {
 resource "aws_autoscaling_group" "main" {
   name                 = "${aws_launch_configuration.main.name}-asg"
   launch_configuration = "${aws_launch_configuration.main.name}"
-  desired_capacity     = 1
-  min_size             = 1
-  max_size             = 1
+  desired_capacity     = "${var.desired_capacity}"
+  min_size             = "${var.min_size}"
+  max_size             = "${var.max_size}"
   health_check_type    = "${var.health_check_type}"
   wait_for_elb_capacity = "1"
   health_check_grace_period = 500
