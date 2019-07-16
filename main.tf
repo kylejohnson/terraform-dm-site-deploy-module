@@ -31,6 +31,12 @@ resource "aws_lb_target_group" "http" {
     port = 80
     matcher = "${var.http_health_check_matcher}"
   }
+
+  stickiness {
+    type = "lb_cookie"
+    cookie_duration = 86400
+    enabled = true
+  }
 }
 
 resource "aws_lb_target_group" "https" {
@@ -48,6 +54,12 @@ resource "aws_lb_target_group" "https" {
     interval = 10
     protocol = "HTTP"
     matcher = "${var.http_health_check_matcher}"
+  }
+
+  stickiness {
+    type = "lb_cookie"
+    cookie_duration = 86400
+    enabled = true
   }
 }
 
