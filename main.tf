@@ -133,7 +133,7 @@ resource "aws_autoscaling_group" "main" {
   max_size             = "${var.max_size}"
   health_check_type    = "${var.health_check_type}"
   wait_for_elb_capacity = "1"
-  health_check_grace_period = 500
+  health_check_grace_period = 1000
   vpc_zone_identifier  = [
     "${var.private_subnets}"
   ]
