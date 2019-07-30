@@ -134,6 +134,11 @@ resource "aws_autoscaling_group" "main" {
   health_check_type    = "${var.health_check_type}"
   wait_for_elb_capacity = "1"
   health_check_grace_period = 1000
+  enabled_metrics = [
+    "GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity",
+    "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances",
+    "GroupTerminatingInstances", "GroupTotalInstances"
+  ]
   vpc_zone_identifier  = [
     "${var.private_subnets}"
   ]
