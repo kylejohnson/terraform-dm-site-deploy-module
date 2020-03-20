@@ -123,6 +123,12 @@ resource "aws_launch_configuration" "main" {
   lifecycle {
     create_before_destroy = true
   }
+
+  root_block_device {
+    volume_type = "gp2"
+    volume_size = 25
+    delete_on_termination = true
+  }
 }
 
 resource "aws_autoscaling_group" "main" {
