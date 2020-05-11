@@ -8,7 +8,7 @@ variable "product" {
 
 variable "environment" {
   description = "The environment to deploy to, e.g. staging, production."
-  default = "staging"
+  default     = "staging"
 }
 
 variable "ci_commit_sha" {
@@ -21,17 +21,17 @@ variable "lb_security_groups" {
 
 variable "ec2_security_groups" {
   description = "The security groups to which the ec2 instances belong."
-  type = "list"
+  type        = list
 }
 
 variable "public_subnets" {
   description = "The subnets in which the public resources belong."
-  type = "list"
+  type        = list
 }
 
 variable "private_subnets" {
   description = "The subnets in which the private resources belong."
-  type = "list"
+  type        = list
 }
 
 variable "instance_type" {
@@ -81,3 +81,4 @@ variable "max_size" {
 variable "min_size" {
   description = "The minimum number of instances the Auto Scaling group should have at any time."
 }
+
