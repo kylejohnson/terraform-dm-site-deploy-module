@@ -12,4 +12,4 @@ aws s3 cp s3://domainmarket-files/ansible/ansible-vault-key.txt /root/ansible-va
 
 ansible-pull -d /root/playbooks -i 'localhost,' -U git@gitlab.domainmarket.com:devops/ansible.git \
 --accept-host-key --vault-password-file=/root/ansible-vault-key.txt \
---extra-vars "git_branch=${git_branch}" ${playbook}
+--extra-vars "git_branch=${git_branch} job_number=${ci_commit_sha}" ${playbook}
