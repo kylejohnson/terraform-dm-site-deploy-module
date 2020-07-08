@@ -177,5 +177,9 @@ resource "aws_autoscaling_group" "main" {
     value               = "asg-${var.product}"
     propagate_at_launch = true
   }
+  tag {
+    key   = "datadog"
+    value = "monitored"
+    propagate_at_launch = true
+  }
 }
-
