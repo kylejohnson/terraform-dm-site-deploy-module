@@ -94,6 +94,7 @@ data "template_file" "launch_config" {
   vars = {
     playbook   = "${var.product}.yml"
     git_branch = var.git_branch
+    ci_commit_sha = var.ci_commit_sha
   }
 }
 
