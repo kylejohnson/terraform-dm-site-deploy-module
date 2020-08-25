@@ -15,6 +15,10 @@ variable "ci_commit_sha" {
   description = "Used in the naming of the launch configuration."
 }
 
+variable "ci_job_id" {
+  description = "The CI job number.  Used for naming AWS resources."
+}
+
 variable "lb_security_groups" {
   description = "The security groups to which the load balancer belongs."
 }
