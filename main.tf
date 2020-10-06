@@ -89,14 +89,14 @@ resource "aws_lb_listener" "https" {
   }
 }
 
-# data "template_file" "launch_config" {
-#   template = file("${path.module}/user_data.sh")
-#   vars = {
-#     playbook   = "${var.product}.yml"
-#     git_branch = var.git_branch
-#     ci_commit_sha = var.ci_commit_sha
-#   }
-# }
+data "template_file" "launch_config" {
+  template = file("${path.module}/user_data.sh")
+  vars = {
+    playbook   = "${var.product}.yml"
+    git_branch = var.git_branch
+    ci_commit_sha = var.ci_commit_sha
+  }
+}
 
 data "aws_ami" "main" {
   most_recent = true
@@ -125,7 +125,7 @@ resource "aws_launch_configuration" "main" {
   key_name                    = "kyle"
   associate_public_ip_address = false
   iam_instance_profile        = var.iam_instance_profile
-  # user_data                   = data.template_file.launch_config.rendered
+  user_data                   = data.template_file.launch_config.rendered
   security_groups             = var.ec2_security_groups
 
   lifecycle {
