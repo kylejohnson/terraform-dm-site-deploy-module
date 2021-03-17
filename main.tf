@@ -108,13 +108,8 @@ data "aws_ami" "main" {
   }
 
   filter {
-    name   = "tag:Role"
+    name   = "tag:role"
     values = [var.product]
-  }
-
-  filter {
-    name   = "tag:Environment"
-    values = [var.environment]
   }
 }
 
