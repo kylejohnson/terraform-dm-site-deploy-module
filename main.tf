@@ -143,7 +143,6 @@ resource "aws_autoscaling_group" "main" {
   health_check_type         = var.health_check_type
   wait_for_elb_capacity     = "1"
   health_check_grace_period = 540
-  health_check_type = "ELB"
   enabled_metrics = [
     "GroupMinSize",
     "GroupMaxSize",
