@@ -30,7 +30,7 @@ resource "aws_lb_target_group" "http" {
     timeout             = 5
     path                = var.http_health_check_path
     interval            = 10
-    port                = 80
+    port                = var.http_health_check_port
     matcher             = var.http_health_check_matcher
   }
 
@@ -55,6 +55,7 @@ resource "aws_lb_target_group" "https" {
     path                = var.https_health_check_path
     interval            = 10
     protocol            = "HTTP"
+    port                = var.https_health_check_port
     matcher             = var.http_health_check_matcher
   }
 

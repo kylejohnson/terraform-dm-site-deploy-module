@@ -70,6 +70,16 @@ variable "https_health_check_matcher" {
   description = "Comma-separated string of expected http return codes for the https health check."
 }
 
+variable "http_health_check_port" {
+  description = "health check port for http target group"
+  type = number
+}
+
+variable "https_health_check_port" {
+  description = "health check port for https target group"
+  type = number
+}
+
 variable "health_check_type" {
   description = "Type of check (EC2 or ELB) for autoscaling group to perform against instances."
 }
