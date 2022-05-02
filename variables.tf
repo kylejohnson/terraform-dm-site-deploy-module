@@ -25,17 +25,17 @@ variable "lb_security_groups" {
 
 variable "ec2_security_groups" {
   description = "The security groups to which the ec2 instances belong."
-  type        = list
+  type        = list(any)
 }
 
 variable "public_subnets" {
   description = "The subnets in which the public resources belong."
-  type        = list
+  type        = list(any)
 }
 
 variable "private_subnets" {
   description = "The subnets in which the private resources belong."
-  type        = list
+  type        = list(any)
 }
 
 variable "instance_type" {
@@ -72,12 +72,12 @@ variable "https_health_check_matcher" {
 
 variable "http_health_check_port" {
   description = "health check port for http target group"
-  type = number
+  type        = number
 }
 
 variable "https_health_check_port" {
   description = "health check port for https target group"
-  type = number
+  type        = number
 }
 
 variable "health_check_type" {

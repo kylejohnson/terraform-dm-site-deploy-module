@@ -93,8 +93,8 @@ resource "aws_lb_listener" "https" {
 data "template_file" "launch_config" {
   template = file("${path.module}/user_data.sh")
   vars = {
-    playbook   = "${var.product}.yml"
-    git_branch = var.git_branch
+    playbook      = "${var.product}.yml"
+    git_branch    = var.git_branch
     ci_commit_sha = var.ci_commit_sha
   }
 }
@@ -180,8 +180,8 @@ resource "aws_autoscaling_group" "main" {
     propagate_at_launch = true
   }
   tag {
-    key   = "datadog"
-    value = "monitored"
+    key                 = "datadog"
+    value               = "monitored"
     propagate_at_launch = true
   }
 }
